@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 import os
 
@@ -30,7 +31,7 @@ SECRET_KEY = 'i-nx)katbzm&vth6+ks4tj@4-2_)j1bsvyv-b4ohzyzwc^kx-b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lichal.herokuapp.com']
 
 
 # Application definition
@@ -129,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+django_heroku.settings(locals())
